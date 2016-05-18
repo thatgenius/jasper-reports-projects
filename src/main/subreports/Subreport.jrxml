@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-05-19T00:17:00 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_5" pageWidth="555" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9f7ddf42-f818-4097-8161-fd09f132c262">
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <field name="fieldOne" class="java.lang.String"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <detail>
+        <band height="70" splitType="Stretch">
+            <staticText>
+                <reportElement mode="Opaque" x="0" y="0" width="555" height="30" backcolor="#7298CC" uuid="2f7dd263-be05-401a-ab65-cb9af43c74b7">
+                    <property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+                </reportElement>
+                <textElement textAlignment="Center" verticalAlignment="Top">
+                    <font size="22"/>
+                </textElement>
+                <text><![CDATA[Subreport]]></text>
+            </staticText>
+            <textField>
+                <reportElement mode="Opaque" x="0" y="40" width="555" height="30" backcolor="#2784A3" uuid="8c898ace-219e-41c7-9881-64b01f18713c">
+                    <property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+                </reportElement>
+                <textElement textAlignment="Center" verticalAlignment="Bottom"/>
+                <textFieldExpression><![CDATA[$F{fieldOne}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

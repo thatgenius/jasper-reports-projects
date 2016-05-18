@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-05-19T00:13:10 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="12f4dc53-4c99-4d08-988a-31cd0bacf977">
+    <parameter name="compiledSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <field name="subreportDatasource" class="java.lang.Object"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <detail>
+        <band height="62" splitType="Stretch">
+            <staticText>
+                <reportElement mode="Opaque" x="0" y="10" width="555" height="30" backcolor="#09632D" uuid="55265e79-68fa-458f-80ad-c1f0aa5fa9c0"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Arial" size="24"/>
+                </textElement>
+                <text><![CDATA[Master report]]></text>
+            </staticText>
+        </band>
+        <band height="50">
+            <subreport>
+                <reportElement mode="Opaque" x="0" y="0" width="555" height="50" forecolor="#FFFFFF" backcolor="#3A37E6" uuid="ee3b7479-e8c6-4cfe-b3e2-24532abd2335">
+                    <property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+                </reportElement>
+                <subreportParameter name="REPORT_DATA_SOURCE">
+                    <subreportParameterExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Arrays.asList($F{subreportDatasource}))]]></subreportParameterExpression>
+                </subreportParameter>
+                <subreportExpression><![CDATA[$P{compiledSubreport}]]></subreportExpression>
+            </subreport>
+        </band>
+        <band height="50">
+            <subreport>
+                <reportElement positionType="Float" mode="Opaque" x="0" y="0" width="555" height="50" forecolor="#FFFFFF" backcolor="#3E43B0" uuid="2dddf26b-4c13-412e-b2a3-8040a516cb68">
+                    <property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+                </reportElement>
+                <subreportParameter name="REPORT_DATA_SOURCE">
+                    <subreportParameterExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Arrays.asList($F{subreportDatasource}))]]></subreportParameterExpression>
+                </subreportParameter>
+                <subreportExpression><![CDATA[$P{compiledSubreport}]]></subreportExpression>
+            </subreport>
+        </band>
+        <band height="20">
+            <break>
+                <reportElement x="0" y="10" width="555" height="1" uuid="60e17588-be2f-47f1-8130-091393902a50">
+                    <property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+                </reportElement>
+            </break>
+        </band>
+        <band height="50">
+            <subreport>
+                <reportElement positionType="Float" mode="Opaque" x="0" y="0" width="555" height="50" forecolor="#FFFFFF" backcolor="#3E43B0" uuid="00de632a-ee23-4cb9-b06f-7035164f8e1b">
+                    <property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+                </reportElement>
+                <subreportParameter name="REPORT_DATA_SOURCE">
+                    <subreportParameterExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Arrays.asList($F{subreportDatasource}))]]></subreportParameterExpression>
+                </subreportParameter>
+                <subreportExpression><![CDATA[$P{compiledSubreport}]]></subreportExpression>
+            </subreport>
+        </band>
+    </detail>
+</jasperReport>
