@@ -1,16 +1,18 @@
 package subreports;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 public class MasterReportBean {
     private SubreportBean subreportDataSource;
-    private List<SubreportsDemo.SubreportWrapper> subreportDataSources;
+    private Map<String, SubreportBean> subreportDataSources;
 
-    public List<SubreportsDemo.SubreportWrapper> getSubreportDataSources() {
+    public Map<String, SubreportBean> getSubreportDataSources() {
         return subreportDataSources;
     }
 
-    public void setSubreportDataSources(List<SubreportsDemo.SubreportWrapper> subreportDataSources) {
+    public void setSubreportDataSources(Map<String, SubreportBean> subreportDataSources) {
         this.subreportDataSources = subreportDataSources;
     }
 

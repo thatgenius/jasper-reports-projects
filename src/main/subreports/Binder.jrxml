@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2016-06-08T14:18:42 -->
+<!-- 2016-06-08T16:16:46 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="12f4dc53-4c99-4d08-988a-31cd0bacf977">
     <import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
     <subDataset name="subreportDataSourceDataset" uuid="64d069fc-b130-41d5-8510-fdaddd10d91b">
@@ -9,14 +9,15 @@
         <queryString>
             <![CDATA[]]>
         </queryString>
-        <field name="subreportBean" class="java.lang.Object"/>
+        <field name="key" class="java.lang.String"/>
+        <field name="value" class="subreports.SubreportBean"/>
     </subDataset>
     <parameter name="compiledSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
     <queryString>
         <![CDATA[]]>
     </queryString>
-    <field name="subreportDataSource" class="java.lang.Object"/>
-    <field name="subreportDataSources" class="java.util.List"/>
+    <field name="subreportDataSource" class="subreports.SubreportBean"/>
+    <field name="subreportDataSources" class="java.util.Map"/>
     <background>
         <band splitType="Stretch"/>
     </background>
@@ -36,8 +37,11 @@
                     <property name="com.jaspersoft.studio.unit.width" value="pixel"/>
                     <property name="com.jaspersoft.studio.unit.y" value="pixel"/>
                 </reportElement>
+                <subreportParameter name="fieldOne">
+                    <subreportParameterExpression><![CDATA[$F{subreportDataSource}.getFieldOne()]]></subreportParameterExpression>
+                </subreportParameter>
                 <subreportParameter name="REPORT_DATA_SOURCE">
-                    <subreportParameterExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Arrays.asList($F{subreportDataSource}))]]></subreportParameterExpression>
+                    <subreportParameterExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></subreportParameterExpression>
                 </subreportParameter>
                 <subreportExpression><![CDATA[$P{compiledSubreport}]]></subreportExpression>
             </subreport>
@@ -46,11 +50,11 @@
             <componentElement>
                 <reportElement x="0" y="30" width="555" height="120" uuid="412b16c9-8924-4c76-9fcd-06af6f6a75bf"/>
                 <jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
-                    <datasetRun subDataset="subreportDataSourceDataset" uuid="46cb5839-d618-4a4a-9b9b-087301c81f7f">
+                    <datasetRun subDataset="subreportDataSourceDataset" uuid="e405448b-a300-411d-a33a-89383d48462a">
                         <datasetParameter name="compiledSubreport">
                             <datasetParameterExpression><![CDATA[$P{compiledSubreport}]]></datasetParameterExpression>
                         </datasetParameter>
-                        <dataSourceExpression><![CDATA[new JRBeanCollectionDataSource($F{subreportDataSources})]]></dataSourceExpression>
+                        <dataSourceExpression><![CDATA[new JRBeanCollectionDataSource($F{subreportDataSources}.entrySet())]]></dataSourceExpression>
                     </datasetRun>
                     <jr:listContents height="120" width="555">
                         <subreport>
@@ -58,8 +62,11 @@
                                 <property name="com.jaspersoft.studio.unit.width" value="pixel"/>
                                 <property name="com.jaspersoft.studio.unit.y" value="pixel"/>
                             </reportElement>
+                            <subreportParameter name="fieldOne">
+                                <subreportParameterExpression><![CDATA[$F{value}.getFieldOne()]]></subreportParameterExpression>
+                            </subreportParameter>
                             <subreportParameter name="REPORT_DATA_SOURCE">
-                                <subreportParameterExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Arrays.asList($F{subreportBean}))]]></subreportParameterExpression>
+                                <subreportParameterExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Arrays.asList($F{value}))]]></subreportParameterExpression>
                             </subreportParameter>
                             <subreportExpression><![CDATA[$P{compiledSubreport}]]></subreportExpression>
                         </subreport>

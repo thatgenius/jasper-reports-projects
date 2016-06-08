@@ -6,6 +6,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * JasperReports simple example: subreports
@@ -52,11 +53,13 @@ public class SubreportsDemo {
 
         SubreportBean subreportBean1 = new SubreportBean();
         subreportBean1.setFieldOne("123");
-        SubreportWrapper wrapper1 = new SubreportWrapper();
-        wrapper1.setSubreportBean(subreportBean1);
-        SubreportWrapper wrapper2 = new SubreportWrapper();
-        wrapper2.setSubreportBean(subreportBean1);
-        masterReportBean.setSubreportDataSources(Arrays.asList(wrapper1, wrapper2, wrapper2));
+
+        Map<String, SubreportBean> subreportDataSources = new HashMap<String, SubreportBean>();
+
+
+        subreportDataSources.put("first", subreportBean1);
+        subreportDataSources.put("second", subreportBean1);
+        masterReportBean.setSubreportDataSources(subreportDataSources);
         return masterReportBean;
     }
 
