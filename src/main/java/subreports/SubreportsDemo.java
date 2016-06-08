@@ -3,6 +3,7 @@ package subreports;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 
@@ -46,7 +47,30 @@ public class SubreportsDemo {
         MasterReportBean masterReportBean = new MasterReportBean();
         SubreportBean subreportBean = new SubreportBean();
         subreportBean.setFieldOne("Subreport works!");
-        masterReportBean.setSubreportDatasource(subreportBean);
+        masterReportBean.setSubreportDataSource(subreportBean);
+
+
+        SubreportBean subreportBean1 = new SubreportBean();
+        subreportBean1.setFieldOne("123");
+        SubreportWrapper wrapper1 = new SubreportWrapper();
+        wrapper1.setSubreportBean(subreportBean1);
+        SubreportWrapper wrapper2 = new SubreportWrapper();
+        wrapper2.setSubreportBean(subreportBean1);
+        masterReportBean.setSubreportDataSources(Arrays.asList(wrapper1, wrapper2, wrapper2));
         return masterReportBean;
     }
+
+    public static class SubreportWrapper {
+        private SubreportBean subreportBean;
+
+        public SubreportBean getSubreportBean() {
+            return subreportBean;
+        }
+
+        public void setSubreportBean(SubreportBean subreportBean) {
+            this.subreportBean = subreportBean;
+        }
+    }
+
+
 }
