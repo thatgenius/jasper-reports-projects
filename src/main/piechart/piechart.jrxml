@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2016-06-10T15:55:21 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_7" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a5e70757-e2da-4f5d-aaf5-81207952590a">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+    <subDataset name="GroupData" uuid="81313086-c6a9-4427-9b48-2963914b6acc">
+        <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+        <queryString>
+            <![CDATA[]]>
+        </queryString>
+        <field name="valueOne" class="java.lang.String"/>
+        <field name="valueTwo" class="java.lang.Integer"/>
+    </subDataset>
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <field name="pieChartData" class="java.util.List"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <detail>
+        <band height="431" splitType="Stretch">
+            <pieChart>
+                <chart evaluationTime="Report" theme="default">
+                    <reportElement x="0" y="0" width="550" height="380" uuid="5494e940-3ba5-4b3d-b105-610d57751d85"/>
+                    <chartTitle>
+                        <font fontName="DejaVu Sans"/>
+                        <titleExpression><![CDATA["Количество профилей"]]></titleExpression>
+                    </chartTitle>
+                    <chartSubtitle>
+                        <font fontName="DejaVu Sans"/>
+                    </chartSubtitle>
+                    <chartLegend position="Right">
+                        <font fontName="DejaVu Sans"/>
+                    </chartLegend>
+                </chart>
+                <pieDataset>
+                    <dataset>
+                        <datasetRun subDataset="GroupData" uuid="79ec7248-ef6d-4c05-89d4-75aaeca4bf99">
+                            <dataSourceExpression><![CDATA[new JRBeanCollectionDataSource($F{pieChartData})]]></dataSourceExpression>
+                        </datasetRun>
+                    </dataset>
+                    <keyExpression><![CDATA[$F{valueOne}]]></keyExpression>
+                    <valueExpression><![CDATA[$F{valueTwo}]]></valueExpression>
+                </pieDataset>
+                <piePlot labelFormat="{0} {2}" legendLabelFormat="{0} {1}">
+                    <plot>
+                        <seriesColor seriesOrder="0" color="#5B9BD5"/>
+                        <seriesColor seriesOrder="1" color="#4472C4"/>
+                        <seriesColor seriesOrder="2" color="#FFC000"/>
+                        <seriesColor seriesOrder="3" color="#ED7D31"/>
+                        <seriesColor seriesOrder="4" color="#A5A5A5"/>
+                        <seriesColor seriesOrder="5" color="#70AD47"/>
+                    </plot>
+                    <itemLabel/>
+                </piePlot>
+            </pieChart>
+        </band>
+    </detail>
+</jasperReport>
