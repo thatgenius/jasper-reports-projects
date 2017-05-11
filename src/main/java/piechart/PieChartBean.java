@@ -16,6 +16,7 @@ public class PieChartBean {
 
 
     public static class PieChartItem {
+        // meaningless comment
         private String valueOne;
         private Integer valueTwo;
 
